@@ -1,0 +1,45 @@
+<div class="container-fluid mt-3 p-5 border">
+
+  <h2 class="mb-3 mt-3"> Dodaj aukcje</h2>
+
+  <form (ngSubmit)="addOffer(f)" #f="ngForm" >
+    <div class="form-group">
+      <div class="form-group mt-3">
+
+        <label for="title">Nazwa aukcji</label>
+        <input type="title"
+               class="form-control"
+               id="title"
+               ngModel
+               name="title"
+               required>
+      </div>
+      <div class="form-group">
+        <label for="description">Opis aukcji</label>
+        <textarea
+          class="form-control"
+          id="description"
+          rows="20"
+          cols="50"
+          ngModel
+          name="description"
+          required>
+      </textarea>
+        <div>
+          <label for="price">Cena</label>
+          <input type="price"
+                 class="form-control"
+                 id=price
+                 ngModel
+                 name="price"
+                 #price="ngModel"
+          >
+        </div>
+      </div>
+      <button type="submit"
+              class="btn btn-primary mt-3 mb-3"
+              [disabled]="!f.valid">Submit
+      </button>
+    </div>
+  </form>
+</div>
