@@ -17,20 +17,27 @@ export class ContactComponent implements OnInit {
   }
 
   onEmailSend(form: NgForm) {
+
     const message = {
       title: form.value.title,
       body: form.value.text,
       city: form.value.city,
       email: form.value.email,
     };
-    const booleanObservable = this.messageService.addMessage(message);
-    booleanObservable.subscribe(send => {
-      if (send) {
-        alert('email sent');
-        form.reset();
-      } else {
-        alert(' we could not send your message -try again ');
-      }
-    });
-  }
+
+    alert('wyslano wiadomsoc : '+JSON.stringify(message) );
+
+    }
 }
+
+//     const booleanObservable = this.messageService.addMessage(message);
+//     booleanObservable.subscribe(send => {
+//       if (send) {
+//         alert('email sent');
+//         form.reset();
+//       } else {
+//         alert(' we could not send your message -try again ');
+//       }
+//     });
+
+
