@@ -25,9 +25,9 @@ export class ContactComponent implements OnInit {
       email: form.value.email,
     };
 
-    alert('wyslano wiadomsoc : '+JSON.stringify(message) );
-
-    }
+    alert('wyslano wiadomsoc : ' + JSON.stringify(message));
+    form.reset()
+  }
 }
 
 //     const booleanObservable = this.messageService.addMessage(message);
