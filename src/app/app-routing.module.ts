@@ -7,10 +7,10 @@ import {ContactComponent} from "./contact/contact.component";
 import {GalleryComponent} from "./gallery/gallery.component";
 import {AuctionsComponent} from "./auctions/auctions.component";
 import {OffersComponent} from "./offers/offers.component";
-import {AddOfferComponent} from "./offers/add-offer/add-offer.component";
+import {AddOfferComponent} from "./account/add-offer/add-offer.component";
 import {OfferDetailsComponent} from "./offers/offer-details/offer-details.component";
 import {AuctionDetailsComponent} from "./auctions/auction-details/auction-details.component";
-import {AddAuctionComponent} from "./auctions/add-auction/add-auction.component";
+import {AddAuctionComponent} from "./account/add-auction/add-auction.component";
 import {PortfolioComponent} from "./portfolio/portfolio.component";
 
 const routes: Routes = [

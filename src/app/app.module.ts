@@ -16,12 +16,14 @@ import {MessageService} from "./service/message.service";
 import { HttpClientModule } from '@angular/common/http';
 import { AuctionsComponent } from './auctions/auctions.component';
 import { OffersComponent } from './offers/offers.component';
-import { AddOfferComponent } from './offers/add-offer/add-offer.component';
+import { AddOfferComponent } from './account/add-offer/add-offer.component';
 import { OfferDetailsComponent } from './offers/offer-details/offer-details.component';
 import { AuctionDetailsComponent } from './auctions/auction-details/auction-details.component';
-import { AddAuctionComponent } from './auctions/add-auction/add-auction.component';
+import { AddAuctionComponent } from './account/add-auction/add-auction.component';
 import {NgImageSliderModule} from "ng-image-slider";
 import { PortfolioComponent } from './portfolio/portfolio.component';
+import {OffersService} from "./service/offers.service";
+import {AuctionService} from "./service/auction.service";
 
 @NgModule({
   declarations: [
@@ -49,7 +51,7 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
         HttpClientModule,
         NgImageSliderModule
     ],
-  providers: [ MessageService
+  providers: [ MessageService, OffersService, AuctionService
     // {
     //   provide: APP_INITIALIZER,
     //   useFactory: initializeKeycloak,

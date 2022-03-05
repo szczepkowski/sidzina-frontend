@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Auction} from "./auction";
 import {Router} from "@angular/router";
+import {AuctionService} from "../service/auction.service";
 
 @Component({
   selector: 'app-auctions',
@@ -8,16 +9,17 @@ import {Router} from "@angular/router";
   styleUrls: ['./auctions.component.css']
 })
 export class AuctionsComponent implements OnInit {
-  auctions: Auction[] = [
-    new Auction("Komputer MAC book pro 2013", "macbook pro 2013 13' ", 1999),
-    new Auction("Komputer MAC book pro 2013", "macbook pro 2013 13' ", 1999),
-    new Auction("Komputer MAC book pro 2013", "macbook pro 2013 13' ", 1999),
-    new Auction("Komputer MAC book pro 2013", "macbook pro 2013 13' ", 1999),
-  ];
+  auctions: Auction[] = []
 
-  constructor(private router: Router,) { }
+  constructor(
+    private router: Router,
+    private auctionService: AuctionService
+  ) {
+
+  }
 
   ngOnInit(): void {
+    this.auctions = this.auctionService.getAuctions();
   }
 
   onTitleClick(title: string) {

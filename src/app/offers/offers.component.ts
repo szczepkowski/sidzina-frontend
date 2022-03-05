@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Offer} from "./offer";
+import {OffersService} from "../service/offers.service";
 
 @Component({
   selector: 'app-offers',
@@ -9,30 +10,16 @@ import {Offer} from "./offer";
 })
 export class OffersComponent implements OnInit {
 
-  @Input() offers: Offer[] = [new Offer("1", "1", 10, 10),
-    new Offer("1", "1", 10, 10),
-    new Offer("1", "1", 10, 10),
-    new Offer("1", "1", 10, 10),
-    new Offer("1", "1", 10, 10)
-  ];
+  @Input() offers: Offer[] = [];
 
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
+              private offersService: OffersService
   ) {
   }
 
   ngOnInit(): void {
-    // this.paramsSubscription = this.activatedRoute.params
-    //   .subscribe((params: Params) => {
-    //     this.categoryName = params.category;
-    //     console.log('route param id' + this.categoryName);
-    //
-    //     this.productService.getByCategory(this.categoryName)
-    //       .subscribe(apiProducts => {
-    //         this.products = apiProducts;
-    //       });
-    //   });
-
+    this.offers = this.offersService.getOffers();
   }
 
   onTitleClick(title: string) {
