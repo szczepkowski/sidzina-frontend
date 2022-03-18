@@ -1,16 +1,16 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Offer} from "../offers/offer";
+import {environment} from "../../environments/environment";
+import {MessageModel} from "./message.model";
+import {Observable} from "rxjs";
 
 @Injectable()
 export class OffersService {
 
-  offers: Offer[] = [new Offer("1", "1", 10, 10),
-    new Offer("1", "1", 10, 10),
-    new Offer("1", "1", 10, 10),
-    new Offer("1", "1", 10, 10),
-    new Offer("1", "1", 10, 10)
-  ];
+  OFFERS_URL = environment.API_URL + '/offers';
+
+  offers: Offer[] = []
 
   constructor(private http: HttpClient) {
   }
@@ -19,8 +19,9 @@ export class OffersService {
     this.offers.push(offer)
   }
 
-  getOffers(): Offer[] {
-    return this.offers;
+  getOffers(): Observable<Offer[]> {
+    return this.http.get<Offer[]>(this.OFFERS_URL);
+
   }
 
 
