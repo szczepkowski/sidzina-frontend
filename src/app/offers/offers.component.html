@@ -1,25 +1,29 @@
 <div class="container-fluid border m-3">
 
   <div *ngFor="let offer of offers" class="container-fluid border">
+
     <br>
     <div class="container-fluid border">
 
       <div class="m-3 d-lg-inline-block">
         <a (click)="onTitleClick(offer.title)"> <img class="btn img-thumbnail" src="/assets/img/goreit_logo.jpg"
-                                                       alt="Card image cap"></a>
+                                                     alt="Card image cap"></a>
       </div>
       <div class="d-lg-inline-block">
-        <a class="btn" (click)="onTitleClick(offer.title)"><h4> {{offer.title}}</h4></a>
+        <a class="btn" (click)="onTitleClick(offer.title)">
+          <h4> {{offer.title}}</h4></a>
         <p>{{offer.price}} PLN</p>
       </div>
       <br>
+
+      <div class="container-fluid m-3 ">
+        {{offer.description}}
+      </div>
     </div>
     <br>
     <br>
 
   </div>
-
-
 
 
 </div>

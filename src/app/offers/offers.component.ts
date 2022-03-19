@@ -19,10 +19,14 @@ export class OffersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.offers = this.offersService.getOffers();
+    this.offersService.getOffers()
+      .subscribe( offers => {
+        console.log( offers)
+        this.offers = offers;
+      });
   }
 
   onTitleClick(title: string) {
-    this.router.navigate(['/uslugi/' + title]);
+    this.router.navigate(['/oferty/' + title]);
   }
 }

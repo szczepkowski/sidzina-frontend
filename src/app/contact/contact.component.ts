@@ -25,19 +25,21 @@ export class ContactComponent implements OnInit {
       email: form.value.email,
     };
 
-    alert('wyslano wiadomsoc : ' + JSON.stringify(message));
+    const booleanObservable = this.messageService.addMessage(message);
+    booleanObservable.subscribe(send => {
+      if (send) {
+        alert('email sent');
+        form.reset();
+      } else {
+        alert(' we could not send your message -try again ');
+      }
+    });
+
+    console.log('wyslano wiadomsoc : ' + JSON.stringify(message));
     form.reset()
   }
 }
 
-//     const booleanObservable = this.messageService.addMessage(message);
-//     booleanObservable.subscribe(send => {
-//       if (send) {
-//         alert('email sent');
-//         form.reset();
-//       } else {
-//         alert(' we could not send your message -try again ');
-//       }
-//     });
+
 
 
