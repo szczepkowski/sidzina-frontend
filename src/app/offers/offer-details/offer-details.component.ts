@@ -9,7 +9,7 @@ import {Offer} from "../offer";
 })
 export class OfferDetailsComponent implements OnInit {
   offer: Offer = new Offer("Usluge kladzenia kafli",
-    " Usluge kladzenia kafli Usluge kladzenia kafli Usluge kladzenia kafli Usluge kladzenia kafli Usluge kladzenia kafli", 10, 10);
+    " Usluge kladzenia kafli Usluge kladzenia kafli Usluge kladzenia kafli Usluge kladzenia kafli Usluge kladzenia kafli", 10);
   imageObjects: Array<object> = [];
 
   constructor() {

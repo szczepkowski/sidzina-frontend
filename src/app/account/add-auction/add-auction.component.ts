@@ -16,7 +16,7 @@ export class AddAuctionComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addOffer(form: NgForm) {
+  addAuction(form: NgForm) {
     const auction = new Auction(
       form.value.title,
       form.value.description,
