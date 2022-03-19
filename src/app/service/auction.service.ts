@@ -1,27 +1,27 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Auction} from "../auctions/auction";
+import {environment} from "../../environments/environment";
+import {Offer} from "../offers/offer";
+import {Observable} from "rxjs";
 
 @Injectable()
 export class AuctionService {
 
-  auctions: Auction[] = [
-    new Auction("Komputer MAC book pro 2013", "macbook pro 2013 13' ", 1999),
-    new Auction("Komputer MAC book pro 2013", "macbook pro 2013 13' ", 1999),
-    new Auction("Komputer MAC book pro 2013", "macbook pro 2013 13' ", 1999),
-    new Auction("Komputer MAC book pro 2013", "macbook pro 2013 13' ", 1999),
-  ];
+  AUCTIONS_URL = environment.API_URL + '/auctions';
 
+  auctions: Auction[] = []
 
   constructor(private http: HttpClient) {
   }
 
-  addAuction(auction: Auction): void {
-    this.auctions.push(auction)
+  addAuction(offer: Offer): void {
+    this.auctions.push(offer)
   }
 
-  getAuctions(): Auction[] {
-    return this.auctions;
+  getAuctions(): Observable<Auction[]> {
+    return this.http.get<Auction[]>(this.AUCTIONS_URL);
+
   }
 
 

@@ -23,8 +23,7 @@ export class AddOfferComponent implements OnInit {
     const offer = new Offer(
       form.value.title,
       form.value.description,
-      form.value.price,
-      form.value.email,
+      form.value.price
     )
 
     alert(' adding offer ' + JSON.stringify(offer));

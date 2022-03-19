@@ -19,7 +19,11 @@ export class AuctionsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.auctions = this.auctionService.getAuctions();
+    this.auctionService.getAuctions()
+      .subscribe(auctions => {
+        console.log(auctions)
+        this.auctions = auctions;
+      });
   }
 
   onTitleClick(title: string) {

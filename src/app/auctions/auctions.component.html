@@ -1,28 +1,28 @@
 <div class="container-fluid border m-3">
 
-
   <div *ngFor="let auction of auctions" class="container-fluid border">
+
     <br>
     <div class="container-fluid border">
 
       <div class="m-3 d-lg-inline-block">
         <a (click)="onTitleClick(auction.title)"> <img class="btn img-thumbnail" src="/assets/img/goreit_logo.jpg"
-                                                     alt="Card image cap"></a>
+                                                       alt="Card image cap"></a>
       </div>
       <div class="d-lg-inline-block">
-        <a class="btn" (click)="onTitleClick(auction.title)"><h4> {{auction.title}}</h4></a>
+        <a class="btn" (click)="onTitleClick(auction.title)">
+          <h4> {{auction.title}}</h4></a>
         <p>{{auction.price}} PLN</p>
       </div>
       <br>
+
+      <div class="container-fluid m-3 ">
+        {{auction.description}}
+      </div>
     </div>
     <br>
     <br>
 
   </div>
-
-
-
-
-</div>
 
 
