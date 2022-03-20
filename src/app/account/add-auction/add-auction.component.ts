@@ -20,10 +20,11 @@ export class AddAuctionComponent implements OnInit {
     const auction = new Auction(
       form.value.title,
       form.value.description,
-      form.value.price
+      form.value.price,
+      form.value.sellerId
     )
     alert(' Mock add offer ' + JSON.stringify(auction));
-    this.auctionService.addAuction(auction)
+  //  this.auctionService.addAuction(auction)
     form.reset()
   }
 

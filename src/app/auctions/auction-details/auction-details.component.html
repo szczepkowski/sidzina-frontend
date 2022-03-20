@@ -1,4 +1,8 @@
-<div  class="container-fluid border">
+<div class="container-fluid border">
+
+  <div class="container-fluid border m-3" *ngIf="auction == undefined">
+    There are some connections issue. Will be fixed soon. Sorry.
+  </div>
 
   <div class="d-inline-block m-3">
     <img class="img-thumbnail" src="/assets/img/goreit_logo.jpg" alt="Card image cap">
@@ -13,12 +17,15 @@
     </div>
   </div>
 
-</div>
+  <div [innerHTML]="auction.description" class="container-fluid fmb-3 mt-3 p-3 border">
+  </div>
 
-<div  [innerHTML]="auction.description" class="container-fluid fmb-3 mt-3 p-3 border">
-
-
-
+  <div class="container-fluid m-5">
+    <div class="alert alert-primary" role="alert">
+      Galeria zdjec
+    </div>
+    <ng-image-slider [animationSpeed]="0.5" [images]="this.imageObjects" #nav></ng-image-slider>
+  </div>
 
 </div>
 

@@ -1,6 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {Offer} from "../offer";
+import {AuctionService} from "../../service/auction.service";
+import {ActivatedRoute} from "@angular/router";
+import {OffersService} from "../../service/offers.service";
 
 @Component({
   selector: 'app-offer-details',
@@ -8,15 +11,22 @@ import {Offer} from "../offer";
   styleUrls: ['./offer-details.component.css']
 })
 export class OfferDetailsComponent implements OnInit {
-  offer: Offer = new Offer("Usluge kladzenia kafli",
-    " Usluge kladzenia kafli Usluge kladzenia kafli Usluge kladzenia kafli Usluge kladzenia kafli Usluge kladzenia kafli", 10);
+  offer!: Offer;
   imageObjects: Array<object> = [];
+  private title: string | null;
 
-  constructor() {
+  constructor(private offerService: OffersService,
+              private route: ActivatedRoute) {
+    this.title = route.snapshot.paramMap.get('title');
   }
 
   ngOnInit(): void {
-    this.setImageObject()
+    this.setImageObject();
+    this.offerService.getOffer(this.title)
+      .subscribe(offer => {
+        console.log(offer)
+        this.offer = offer;
+      });
   }
 
   isLoggedIn() {
@@ -28,7 +38,6 @@ export class OfferDetailsComponent implements OnInit {
   }
 
   setImageObject() {
-
     this.imageObjects.push({
       image: 'https://youtu.be/dpXn9Cn9toU',
       thumbImage: 'https://youtu.be/dpXn9Cn9toU',
@@ -36,7 +45,6 @@ export class OfferDetailsComponent implements OnInit {
       title: 'Filmik o gShop',
       imagePopup: true,
     });
-
-
   }
+
 }
