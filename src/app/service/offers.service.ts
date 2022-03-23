@@ -4,11 +4,12 @@ import {Offer} from "../offers/offer";
 import {environment} from "../../environments/environment";
 import {MessageModel} from "./message.model";
 import {Observable} from "rxjs";
+import {Auction} from "../auctions/auction";
 
 @Injectable()
 export class OffersService {
 
-  OFFERS_URL = environment.API_URL + '/offers';
+  OFFERS_URL = environment.API_URL + '/offers/';
 
   offers: Offer[] = []
 
@@ -21,6 +22,12 @@ export class OffersService {
 
   getOffers(): Observable<Offer[]> {
     return this.http.get<Offer[]>(this.OFFERS_URL);
+
+  }
+
+
+  getOffer(title: String): Observable<Offer> {
+    return this.http.get<Offer>(this.OFFERS_URL + title);
 
   }
 

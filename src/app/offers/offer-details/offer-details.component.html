@@ -1,54 +1,29 @@
-<div  class="container-fluid border">
+<div class="container-fluid border">
 
-    <div class="d-inline-block m-3">
-      <img class="img-thumbnail" src="/assets/img/goreit_logo.jpg" alt="Card image cap">
-    </div>
-
-  <div class="d-lg-inline-block border m-1 float-right">
-    <div class="container-sm m-3"> {{offer.price}} PLN</div>
-    <p class="btn-warning" [hidden]="isLoggedIn()"> Tylko zalogowani uzytkownicy moga dokonywac zakupu </p>
-    <form (ngSubmit)="onOrderBuyClick(n)" #n="ngForm">
-      <div [hidden]="!isLoggedIn()" class="form-group m-0">
-        <div class="form-check">
-          <label class="text-" for="amount">
-            <small>Liczba sztuk</small>
-          </label>
-          <input type="text"
-                 id="amount"
-                 class="form-control"
-                 ngModel
-                 name="amount"
-                 required
-                 #amount="ngModel"/>
-          <button type="submit"
-                  class="btn btn-primary mt-1 mb-1"
-                  >Kup teraz
-          </button>
-        </div>
-      </div>
-    </form>
+  <div class="d-inline-block m-3">
+    <img class="img-thumbnail" src="/assets/img/goreit_logo.jpg" alt="Card image cap">
   </div>
 
-    <div class="d-inline-block">
-      <div>
-        <p><b>{{offer.title}}</b></p>
-      </div>
-      <div>
-        <p><b> {{offer.price}} PLN</b></p>
-      </div>
+  <div class="d-inline-block">
+    <div>
+      <p><b>{{offer.title}}</b></p>
     </div>
-
-  <div  [innerHTML]="offer.description" class="container-fluid fmb-3 mt-3 p-3 border"> </div>
-
-    <div class="container-fluid m-5">
-
-      <div class="alert alert-primary" role="alert">
-        Galeria zdjec
-      </div>
-      <ng-image-slider [animationSpeed]="0.5" [images]="this.imageObjects" #nav></ng-image-slider>
-
+    <div>
+      <p><b> {{offer.price}} PLN</b></p>
     </div>
+  </div>
 
+  <div [innerHTML]="offer.description" class="container-fluid fmb-3 mt-3 p-3 border">
+  </div>
+
+  <div class="container-fluid m-5">
+
+    <div class="alert alert-primary" role="alert">
+      Galeria zdjec
+    </div>
+    <ng-image-slider [animationSpeed]="0.5" [images]="this.imageObjects" #nav></ng-image-slider>
+
+  </div>
 
 
 </div>

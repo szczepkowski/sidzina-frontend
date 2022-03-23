@@ -1,5 +1,9 @@
 <div class="container-fluid border m-3">
 
+  <div class="container-fluid border m-3" *ngIf="offers.length == 0">
+    There are some connections issue. Will be fixed soon. Sorry.
+  </div>
+
   <div *ngFor="let offer of offers" class="container-fluid border">
 
     <br>
